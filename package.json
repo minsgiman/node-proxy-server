@@ -1,0 +1,23 @@
+{
+  "name": "myexpressapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "stop": "pm2 kill",
+    "test": "pm2 monit"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^3.0.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "http-proxy": "^1.18.0",
+    "http-proxy-middleware": "^1.0.3",
+    "morgan": "~1.9.1",
+    "pm2": "^4.2.3",
+    "pug": "2.0.0-beta11",
+    "querystring": "^0.2.0"
+  }
+}

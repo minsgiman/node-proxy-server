@@ -1,0 +1,31 @@
+var pm2 = require('pm2');
+
+pm2.start( {
+  "name" : 'Master',
+  "script" : 'master.js',
+  "args" : ['master'],
+  "exec_mode" : 'cluster',
+  "instances" : 1,
+  "out_file": '/dev/null',
+  "error_file": '/dev/null'
+}, function (err, app) {
+  if (err) {
+    console.log('master start error!');
+    return;
+  }
+  var i, len = 3, workerId;
+
+  for (i = 0; i < len; i += 1) {
+    workerId = '' + (i + 1);
+    pm2.start({
+      "name": 'Worker',
+      "script": 'worker.js',
+      "args": [workerId],
+      "exec_mode" : 'cluster',
+      "instances" : 1,
+      "out_file": '/dev/null',
+      "error_file": '/dev/null'
+    }, function (err, app) {
+    });
+  }
+});
