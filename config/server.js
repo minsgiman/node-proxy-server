@@ -1,5 +1,5 @@
 const constants = {
-    PROXY_SEVER: 'https://dev-sftoastcam.azurewebsites.net'
+    PROXY_SEVER: 'https://xxx.azurewebsites.net'
 };
 
 module.exports = constants;
